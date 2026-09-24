@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage{amsmath}
+
+\title{ISE 555 HW 1}
+\author{Luke Pepin}
+\date{September 21 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Question 1}
+To maximize the number of assembled componenets that can be produced as a linear program denote $x_1$ = number of shafts produced per year and $x_2$ = number of frames produced per year. Each assembly requires exactly one shaft and one frame, Z = min($x_1$, $x_2$). The number of complete assemblies is maximized when $x_1 = x_2$ since any additional units would be wasted, so the objective is $\max Z = x_1$.
+
+Maximize: $Z = x_1$
+
+Subject to:
+\begin{itemize}
+    \item $0.6x_1 + 0.8x_2 \le 90000$ = Forging (20 * 4500)
+    \item $0.3x_1 \le 5 * 4500$ = Lathe (5 * 4500)
+    \item $0.2x_2 \le 13500$ = Drilling (3 * 4500)
+    \item $0.3x_2 \le 27000$ = Milling (6 * 4500)
+    \item $0.4x_1 + 0.6x_2 \le 45000$ = Grinder (10 * 4500)
+    \item $x_1 = x_2$
+    \item $x_1, x_2 \ge 0$
+\end{itemize}
+
+    \textbf{The optimal solution is $x_1^* = x_2^* = 45000$, giving $Z^* = 45000$ assembled units per year.}
+
+    \textbf{Numerical Check}
+
+    Substitute $x_1 = x_2 = 45000$ into each constraint:
+    \begin{itemize}
+        \item Forging: $0.6(45000) + 0.8(45000) = 63000 \le 90000$
+        \item Lathe: $0.3(45000) = 13500 \le 22500$
+        \item Drilling: $0.2(45000) = 9000 \le 13500$
+        \item Milling: $0.3(45000) = 13500 \le 27000$
+        \item Grinder: $0.4(45000) + 0.6(45000) = 45000 \le 45000$ (minimum capacity, bottleneck)
+    \end{itemize}
+    The solution was choosen from the Grinder constraint. All other constraints are satisfied.
+
+    \textbf{Optimality Certificate}
+
+    Setting $x_1 = x_2 = x$, the objective becomes $Z = x$, which is increasing in $x$. Substituting into each constraint bounds $x$ from above:
+    \[
+    x \le 64286 \text{ (Forging)}, \quad x \le 75000 \text{ (Lathe)}, \quad x \le 67500 \text{ (Drilling)},
+    \]
+    \[
+    x \le 90000 \text{ (Milling)}, \quad x \le 45000 \text{ (Grinder)}.
+    \]
+    Again the minimum capacity of these upper bounds is the Grinder at $x = 45000$, which is the optimal solution.
+
+    \textbf{Divisibility}
+
+    Optimal Solution is already whole number, rounding is not necessary.
+
+\section*{Question 2}
+Given 3 ingredients, corn $x_1$, limestone $x_2$ and alfalfa $x_3$ each with their own cost per bushel. Additionaly, given the required bushel amounts of $N$ and nutritional requirements for each ingredient written for corn would be $c_{11}$, $c_{12}$, $c_{13}$, $c_{14}$, linestone $c_{21}$, $c_{22}$, $c_{23}$, $c_{24}$ and alfalfa $c_{31}$, $c_{32}$, $c_{33}$, $c_{34}$ for the nutritional content of each ingredient. The nutritional requirements must result in the combined nutritional values falling between a range of \{$P_1, P_2, P_3, P_4$\} at its lower bound and \{$u_1, u_2, u_3, u_4$\} as its upper bound per bushel.
+The objective is to determine the optimal amount of ingredients to order to minimize the cost and meet the needs.
+
+Minimize: $Z = 12x_1 + 5x_2 + 8x_3$
+
+Subject to:
+\begin{itemize}
+    \item $x_1+x_2+x_3 = N$ (Total Bushel Requirement)
+    \item $P_1*N \le c_{11}x_1 + c_{21}x_2 + c_{31}x_3 \le u_1*N$ (Protein Requirement)
+    \item $P_2*N \le c_{12}x_1 + c_{22}x_2 + c_{32}x_3 \le u_2*N$ (Calcium Requirement)
+    \item $P_3*N \le c_{13}x_1 + c_{23}x_2 + c_{33}x_3 \le u_3*N$ (Carbohydrate Requirement)
+    \item $P_4*N \le c_{14}x_1 + c_{24}x_2 + c_{34}x_3 \le u_4*N$ (Vitamin Requirement)
+    \item $x_1, x_2, x_3 \ge 0$ (Non-negativity Constraint)
+\end{itemize}
+
+Problem description asks for a linear program, and due to the limited values in the problem statement, the solution is not possible to determine.
+
+
+\section*{Question 4}
+Part(A) - Using a standard transportation/assignment model, the problem can be formulated as bidders "sources" as $a_i$, depot "destinations" as $b_j$, and the cost of shipping from each bidder to each deposit as $c_{ij}$. The decision variable is the amount shipped from each bidder to each deposit, denoted as $x_{ij}$.
+
+Minimize: $Z = \sum_i \sum_j c_{ij} \, x_{ij}$
+
+\textbf{Subject to:}
+\begin{itemize}
+    \item $\sum_j x_{ij} \le a_i$ (Supply constraint)
+    \item $\sum_i x_{ij} \ge b_j$ (Demand constraint)
+    \item \(x_{ij} \ge 0\) (Non-negativity constraint)
+\end{itemize}
+
+Part(B) - Now, adding a discount to the unit delivery cost if $\sum_j x_{ij} \ge a_i$. With discounted rate now being $d_{ij}$, if a discount is applied at $z_i$ the new model becomes:
+
+Minimize: $Z = \sum_i \sum_j c_{ij} \, x_{ij} \, z_i + \sum_i \sum_j d_{ij} \, x_{ij} \, z_i$ 
+
+\textbf{Subject to:}
+\begin{itemize}
+    \item $if \sum_j x_{ij} \le a_i \text{ then } z_i = 0 \text{ else } z_i = 1$ (Discount constraint)
+    \item $\sum_i x_{ij} \ge b_j$ (Demand constraint)
+    \item \(x_{ij} \ge 0\) (Non-negativity constraint)
+\end{itemize}
+
+\section*{Question 6}
+Members of the Committee, thank you for your time. It seems that in all of Operations Research work to make concise models to explain system behaviors and inform decision making they continually fail at making a concise and direct definition for me to use. I've seen it described as 'The art of winning the war without actually fighting it' which seems too concise and leaves you all with more questions than answers and much more verbose 'The application of methods of science to complex problems in the direction and management... Develop a scientific model of the system, incorporating measurements of factors such as change and risk with which to predict and compare the outcomes of alternative decisions, strategies or controls. Help management determine its policy and actions scientifically'.
+
+While these reasoning make Operation Research seem like a political science its root is in the decision making with analytical data behind it. I don't need to tell members of congress the importance of a good baseball metaphor but Operation Research is the Moneyball decision making in finding the value where the human eye misses.
+
+The application in operations research is in billions of dollars in industry from budgeting and investments, purchasing, marketing, defense and nearly every aspect of commerce.
+
+I would like to ask the members of the committee is there a strategy to the Department of Energy in providing electricity to 340 million Americans is there a strategy? In supporting thousands of cities across the country is there a strategy? In this very room do you members have a strategy?
+
+There are 2 counter arguments I see with Operations Research the first is the commitment of time and money to build out models for the slightly improved solutions worth it? The price of experimenting on the grid itself rather than Operations models exceeds any cost it may incure. The second and less applicable argument is it takes a certain feeling out of the game and causes decision makers to over rely on statistics and numbers than making the right decisions, but luckily with yourselves as management I see no reason why these additional resources can support you in making the right decisions.
+
+\end{document}

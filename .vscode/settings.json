@@ -1,0 +1,6 @@
+{
+  // Delete LaTeX build files after each successful compile so folders stay clean.
+  // The default glob list keeps .synctex.gz, so jumping between PDF and source still works.
+  "latex-workshop.latex.autoClean.run": "onSucceeded",
+  "latex-workshop.latex.clean.method": "glob"
+}

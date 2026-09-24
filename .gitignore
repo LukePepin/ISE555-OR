@@ -1,0 +1,24 @@
+.DS_Store
+
+# Copyrighted textbook: this repo is public
+/Bhunia-Sahoo-Shaikh-2019-Advanced-Optimization-and-OR.pdf
+
+# Inbox is a drop zone; keep the folder, not the contents
+Inbox/*
+!Inbox/.gitkeep
+
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+main.pdf
