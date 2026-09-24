@@ -1,0 +1,183 @@
+% Source: scan.pdf pages 1-2 and the top of page 3.
+% Chapter 2 starts partway down page 3; that part is in ../ch02/notes.tex.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[hidelinks]{hyperref}
+
+% Uncertain reading from the scan. Prints red until you fix it against the paper.
+\newcommand{\unclear}[1]{\textcolor{red}{[#1?]}}
+
+% Explanation added during processing, not written on the page.
+\newenvironment{aside}{\begin{quote}\small\color{black!65}\textbf{Note.}\ }{\end{quote}}
+
+\title{ISE 555 Reading Notes\\\large Chapter 1: Introduction to Operations Research}
+\author{Luke Pepin}
+\date{September 21, 2026}
+
+\begin{document}
+\maketitle
+
+\section{Origins}
+
+Operations research (OR) grew out of World War II. It has been described as
+``the art of winning the war without actually fighting it'' (Arthur C.\ Clarke).
+\begin{itemize}
+    \item \textbf{British:} efficient ocean transport, effective bombing.
+    \item \textbf{U.S.:} fighting patterns, planning, utilization of electronics.
+\end{itemize}
+
+\section{Definition}
+
+\begin{quote}
+``The application of methods of science to complex problems in the direction and
+management of large systems of men, machines, materials and money in industry,
+business and defence\ldots\ Develop a scientific model of the system, incorporating
+measurements of factors such as chance and risk with which to predict and compare
+the outcomes of alternative decisions, strategies or controls. Help management
+determine its policy and actions scientifically.''
+\end{quote}
+
+\begin{aside}
+This is the Operational Research Society (UK) definition, one of twelve definitions
+the book lists in Section 1.3.
+\end{aside}
+
+\section{Applications}
+
+\begin{itemize}
+    \item Budgeting and investments
+    \item Purchasing
+    \item Production management
+    \item Marketing
+    \item Personnel management
+    \item Research and development
+\end{itemize}
+
+\section{Phases of an OR Study}
+
+\begin{enumerate}
+    \item \textbf{Formulation of the problem:} objectives, variables, ranges.
+    \item \textbf{Construction of a mathematical model:} iconic, analogue, or
+          symbolic (mathematical).
+    \item \textbf{Deriving a solution from the model:} optimize for the objective,
+          plus sensitivity analysis.
+    \item \textbf{Testing the model and solution:} the model's solution should
+          perform best.
+    \item \textbf{Implementing a solution:} be ready, since a solution can get
+          outdated.
+\end{enumerate}
+
+\section{Scope}
+
+A wide variety of industries apply OR: it applies anywhere there is a
+\emph{strategy} to choose.
+
+\section{Modelling in OR}
+
+A model is ``an idealized representation of a real-life system.''
+
+\begin{itemize}
+    \item \textbf{Advantages:} concise, logical, systematic; enables high-powered math.
+    \item \textbf{Disadvantages:} not to be considered absolute; verified only
+          through experiment; \unclear{timely}.
+\end{itemize}
+
+\subsection*{Types of models}
+
+\begin{itemize}
+    \item \textbf{Iconic:} a pictorial representation of a system, scaled up or
+          down for a purpose (a globe, an atom diagram, a map). Difficult to
+          manipulate for experiments.
+    \item \textbf{Analogue:} one set of properties is used to represent another.
+          In a graph, distance represents a variable; in a pie graph, area
+          represents a percentage or probability. Not very specific.
+    \item \textbf{Mathematical (symbolic):} uses equations to predict behavior.
+    \begin{enumerate}
+        \item[(i)] \textbf{Deterministic:} parameters are assumed known and precise.
+        % CHANGED: page had "(general)" after the non-deterministic definition.
+        % Specific/general is a separate classification (below), not a synonym for non-deterministic.
+        \item[(ii)] \textbf{Non-deterministic:} at least one parameter is random or fuzzy.
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{Specific vs.\ general models}
+
+\begin{itemize}
+    \item \textbf{Specific} models are either \textbf{static} or \textbf{dynamic},
+          depending on whether a time factor is considered.
+    \item \textbf{General} models are non-optimized.
+\end{itemize}
+
+\subsection*{General solution methods}
+
+\begin{enumerate}
+    \item[(i)] \textbf{Analytical methods:} basic math, differentials, calculus.
+    \item[(ii)] \textbf{Numerical methods:} trial and error, machine learning,
+          continuous improvement.
+    \item[(iii)] \textbf{Monte Carlo technique:} random number table; plug in and find.
+\end{enumerate}
+
+\section{From Juan's Notes (September 14 and 16)}
+
+\begin{itemize}
+    \item Elementary calculus is not always enough: there can be several turning
+          points, local vs.\ global minima and maxima, and endpoints to check.
+    \item Standard problem formulation:
+    \begin{enumerate}
+        \item Decision and scope
+        \item Given data
+        \item Decision variables
+        \item Objective
+        \item Constraints
+        \item Domain and assumptions
+        \item Validate and interpret
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{Examples}
+
+\textbf{4. Two-variable linear program}
+
+\begin{minipage}[t]{0.45\linewidth}
+\vspace{0pt}
+Maximize: $f(x) = 2x_1 + x_2$
+
+Subject to:
+\begin{itemize}
+    \item $x_1 + x_2 \le 1$
+    \item $x_1, x_2 \ge 0$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\vspace{0pt}
+\centering
+\begin{tabular}{ccc}
+    \toprule
+    Point & Coordinates & Objective value \\
+    \midrule
+    $A$ & $(1, 0)$ & 2 \\
+    $B$ & $(0, 1)$ & 1 \\
+    $C$ & $(0, 0)$ & 0 \\
+    \bottomrule
+\end{tabular}
+\end{minipage}
+
+\medskip
+\textbf{5. Cabinet manufacturing}
+
+\textbf{6. Insurance workload allocation}
+
+\begin{aside}
+The numbers 4 to 6 match the section numbers in Juan's notes, where these
+examples are worked in full: \texttt{Notes/Lectures/2026-09-14/J-notes.pdf}.
+\end{aside}
+
+\end{document}
