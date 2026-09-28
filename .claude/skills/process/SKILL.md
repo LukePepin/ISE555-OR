@@ -22,7 +22,8 @@ Read each file in full before deciding anything. For a PDF, call Read with no
 |---|---|---|
 | Luke's lecture notes | `Notes/Lectures/YYYY-MM-DD/scan.pdf` | write `notes.tex`, see [notes.md](notes.md) |
 | Luke's textbook reading notes | `Notes/Reading/chNN/scan.pdf` | write `notes.tex`, see [notes.md](notes.md) |
-| Assignment handout | `Homework/HWn/handout.pdf` | nothing more on its own |
+| Assignment handout (Unit n Assignment is HWn) | `Homework/HWn/handout.pdf` | nothing more on its own |
+| Dr. Houghton's unit slides | `Notes/Slides/unitNN.pdf` | file only |
 | Luke's handwritten homework | `Homework/HWn/scan.pdf` | write `main.tex`, see [homework.md](homework.md) |
 | Juan: typeset notes PDF | `Notes/Lectures/YYYY-MM-DD/J-notes.pdf` (plus `J-traceability.pdf` if Juan sent one) | file only |
 | Juan: typeset homework PDF | `Homework/HWn/J-HWn.pdf` (plus `J-traceability.pdf` if Juan sent one) | file only |

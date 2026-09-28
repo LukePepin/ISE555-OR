@@ -19,6 +19,7 @@ Inbox/                      new scans, emptied by /process
 Notes/
   Lectures/YYYY-MM-DD/      scan.pdf, notes.tex, notes.pdf  (+ J-notes.pdf etc.)
   Reading/chNN/             same files, named by textbook chapter
+  Slides/unitNN.pdf         Dr. Houghton's slides for each unit
 Homework/HWn/               handout.pdf, scan.pdf, main.tex, "Luke Pepin - ISE 555 HWn.pdf"  (+ J-HWn.pdf)
 Bhunia-Sahoo-Shaikh-2019-Advanced-Optimization-and-OR.pdf   the textbook, gitignored
 ```
@@ -26,7 +27,8 @@ Bhunia-Sahoo-Shaikh-2019-Advanced-Optimization-and-OR.pdf   the textbook, gitign
 - **Juan's files carry a `J-` prefix** and sit in the same folder as Luke's:
   `J-scan.pdf`, `J-notes.tex`, `J-notes.pdf`, `J-traceability.pdf`, `J-HWn.pdf`.
   There is no separate Juan folder.
-- Dates are always ISO (`2026-09-23`). Chapters are always two digits (`ch01`).
+- Dates are always ISO (`2026-09-23`). Chapters and units are always two digits
+  (`ch01`, `unit01`). The Unit n Assignment is `HWn`.
 - `Homework/HW1/main.tex` is the style example for homework, and
   `Notes/Lectures/2026-09-14/J-notes.pdf` (Juan's, covering 9/14 and 9/16) for notes.
 - Each `.tex` file stands alone. There is no shared preamble.

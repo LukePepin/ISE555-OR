@@ -22,6 +22,7 @@ Notes/
   Lectures/2026-09-23/      scan.pdf · notes.tex · notes.pdf
   Lectures/2026-09-14/      J-notes.pdf · J-traceability.pdf   (Juan's)
   Reading/ch01/             reading notes, named by textbook chapter
+  Slides/unit01.pdf         Dr. Houghton's slides for each unit
 Homework/
   HW1/                      handout.pdf · main.tex · Luke Pepin - ISE 555 HW1.pdf
                             J-HW1.pdf · J-traceability.pdf     (Juan's)
