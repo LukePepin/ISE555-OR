@@ -22,8 +22,25 @@ From the cold diagnostic on 2026-10-24 (D1–D7, no notes). The midterm is on
 - Equality constraint gives a free dual variable (D7)
 - Convexity conclusions; convex f over convex S means a local min is global (D1)
 
+## Review session 2026-10-26
+
+- **#1 done (B2-1).** Answer: x₁ = 2, x₂ = 4, z = 20. Entering and leaving were right every time.
+  Arithmetic slips to drill: dividing by 0.5 *doubles* a row (twice multiplied instead); relabel
+  basic rows after each pivot; read z off row 0 directly for a max problem, don't negate it.
+  Check at the end: at a BFS with both slacks nonbasic, every constraint is tight.
+  One more practice tableau later.
+
+## Review session 2026-10-27
+
+Notes in `Notes/Review/2026-10-27/study-session.md`.
+
+- Scope settled from `Notes/Slides/midterm-review.pdf`: "revised" means Big-M and "dual simplex"
+  means building the dual plus complementary slackness. Sensitivity is not on the review slide.
+- Quiz 1 (forms): 3 of 4 answered right. Missed x₃ ≤ 0 → x₃ = −x′ (picked writing it as a row with
+  a slack, which with x₃ ≥ 0 forces x₃ = 0).
+
 ## Still open
 
-- B2-1: max z = 4x₁ + 3x₂, s.t. 2x₁ + x₂ ≤ 8, x₁ + x₂ ≤ 6
-- Phase 1 on the D6 tableau, starting from row 0 = (−2, −3, 1, 0, 0 | −10)
-- Block 3 (Ch 4–5, 7): check which of revised simplex, dual simplex and sensitivity were covered in class
+- Phase 1 on the D6 tableau, starting from row 0 = (−2, −3, 1, 0, 0 | −10). Drill written out in
+  the 2026-10-27 notes: min 2x₁ + 3x₂, x₁ + x₂ ≥ 4, x₁ + 2x₂ = 6.
+- Quiz 1 questions 5–8, then Blocks 2–4 and full practice problems
