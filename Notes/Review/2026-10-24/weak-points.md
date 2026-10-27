@@ -39,8 +39,26 @@ Notes in `Notes/Review/2026-10-27/study-session.md`.
 - Quiz 1 (forms): 3 of 4 answered right. Missed x₃ ≤ 0 → x₃ = −x′ (picked writing it as a row with
   a slack, which with x₃ ≥ 0 forces x₃ = 0).
 
+## Review session 2026-10-27 (evening)
+
+- Blocks 1 (redone as a 3x3 jungle: standard → canonical → dual), 2, 3, 4 all covered;
+  full bread/cake practice problem solved correctly (x=(40,20), z=200, y read straight
+  off the optimal tableau). Three special-case tableaus (unbounded, infeasible, alternate
+  optima) worked in full.
+- New error pattern for **#1 Simplex arithmetic**: clearing a column, grabbed the pivot
+  row's unrelated coefficient instead of the target row's own coefficient in the entering
+  column (e.g. used 0.5 from the pivot row instead of 1 from the row being cleared), and
+  used `+` instead of `−`. Self-diagnosed as "small dumb mistakes without the calculator,"
+  not a conceptual gap — matches the existing fix for #1 (relabel/recheck each step).
+- Dual conversion (#5) still has one recurring trap distinct from the sign-table one already
+  listed: confusing a primal constraint row with a dual constraint. One primal row → one new
+  dual *variable*, whose coefficients spread across the *existing* dual constraints (one per
+  primal variable) plus one objective term — it does not become a new dual constraint on its own.
+
 ## Still open
 
+- Finish the brewery bonus problem (3rd tableau onward — see 2026-10-27 notes).
 - Phase 1 on the D6 tableau, starting from row 0 = (−2, −3, 1, 0, 0 | −10). Drill written out in
-  the 2026-10-27 notes: min 2x₁ + 3x₂, x₁ + x₂ ≥ 4, x₁ + 2x₂ = 6.
-- Quiz 1 questions 5–8, then Blocks 2–4 and full practice problems
+  the 2026-10-27 notes: min 2x₁ + 3x₂, x₁ + x₂ ≥ 4, x₁ + 2x₂ = 6. Not confirmed finished.
+- Quiz 1 questions 5–8 (if not already covered elsewhere)
+- Timed tableau speed/arithmetic drill before the exam

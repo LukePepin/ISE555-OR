@@ -107,11 +107,41 @@ forces x₃ = 0.
 
 Answer key for 5–8: 5T, 6b, 7a, 8F (the upper bound stays a row, x₁ + s = 7).
 
+## Review session 2026-10-27 (evening)
+
+Different session, same day, no formal quizzes this pass — concept-level teaching plus
+worked problems instead.
+
+- **Block 1 redone as a 3x3 "jungle" problem** (max, nonzero lower bound x₁ ≥ 2, one
+  each of ≤/≥/=) → standard form → canonical (equality splits into two ≥ rows, so 3
+  constraints become 4, meaning 4 dual variables) → dual. One miss: tried to build a
+  dual *constraint* directly from one primal row's own coefficients, instead of
+  recognizing that one primal row spawns one new dual *variable* whose row-coefficients
+  distribute across the *existing* dual constraints (one per primal variable) plus one
+  term in the dual objective.
+- **Block 2** (basic solutions, BFS = extreme point, Fundamental Theorem of LP,
+  graphical method) and **Block 4** (weak/strong duality, complementary slackness)
+  covered, no issues flagged.
+- **Block 3**: special cases drilled with three full worked tableaus — unbounded (entering
+  column has no positive entry), infeasible (Phase 1 row 0 ≥ 0 but an artificial is still
+  basic and nonzero), alternate optima (optimal but a nonbasic variable has 0 in row 0).
+  The D6 artificial-variable drill (`min 2x₁+3x₂, x₁+x₂≥4, x₁+2x₂=6`) was handed off to
+  work solo — not confirmed finished.
+- **Full practice — bread/cake LP: solved correctly end to end.** x = (40, 20), z = 200,
+  and y = (2/3, 5/3, 0) read directly off the optimal tableau's slack columns (no need to
+  solve the dual separately). Matches the answer key above.
+- **Bonus problem (brewery, 3 products × 3 resources):**
+  ```
+  max z = 50x₁ + 40x₂ + 30x₃
+  4x₁ + 2x₂ + x₃ ≤ 100 (hops) | 5x₁ + 6x₂ + 3x₃ ≤ 150 (malt) | 2x₁ + 3x₂ + 4x₃ ≤ 80 (tank hrs)
+  ```
+  Reproduced the 2nd tableau correctly (x₁ in, s₁ out, ratio 25). Ran out of time before
+  the 3rd pivot (x₃ should enter next — row 0 has −15 under x₂, −17.5 under x₃).
+
 ## Next session
 
-1. Finish Quiz 1 (5–8).
-2. Block 2: basic solutions, extreme points, graphical solutions + quiz.
-3. Block 3: tableau, special cases, Phase 1 / Big-M (work the #2 drill) + quiz.
-4. Block 4: duality and complementary slackness + quiz.
-5. Full practice problems. Ready-made one: solve the bread/cake LP (answer x = (40, 20),
-   z = 200), write its dual and get y by complementary slackness (y = (2/3, 5/3, 0)).
+1. Finish the brewery problem (3rd tableau: x₃ enters; continue to optimality).
+2. Confirm/finish the D6 drill (Phase 1 pivots) if not already done elsewhere.
+3. Timed tableau drill for speed and arithmetic-without-a-calculator accuracy (see weak
+   point #1 — tonight's errors were arithmetic slips, not conceptual gaps).
+4. Full review pass before the exam, 2026-10-28, 4:00–5:15 PM.
